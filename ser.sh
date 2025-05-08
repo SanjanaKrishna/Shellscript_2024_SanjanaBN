@@ -1,11 +1,11 @@
 #!/bin/bash
 
-SERVICE_NAME="your_service_name"
+SERVICE="your_service_name"  # Replace with your actual service name
 
-if systemctl status $SERVICE_NAME > serfile; then
-  echo "$SERVICE_NAME is running"
+STATUS=$(systemctl is-active "$SERVICE")
+
+if [ "$STATUS" = "active" ]; then
+  echo "$SERVICE is running"
 else
-  echo "$SERVICE_NAME is not running, starting..."
-  systemctl start $SERVICE_NAME
+  echo "$SERVICE is NOT running"
 fi
-
