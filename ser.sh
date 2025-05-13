@@ -8,4 +8,5 @@ if [ "$STATUS" = "active" ]; then
   echo "$SERVICE is running"
 else
   echo "$SERVICE is NOT running"
+  systemctl start "$SERVICE"  
 fi
