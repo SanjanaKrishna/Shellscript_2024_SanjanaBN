@@ -9,3 +9,6 @@ if [ $du -gt 30 ];then
 
   echo "The CPU threshold has reached" | mail -s "Cleanup memory" sanjnabn6@gmail.com
 fi
+
+
+MEMORY : mu=$(free | grep Mem | awk '{print int($3/$2 * 100)}')
